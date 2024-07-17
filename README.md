@@ -29,14 +29,11 @@ ali.apiKey=
 ### 克隆项目
 
 ```bash
-git clone https://github.com/yourusername/TextToPicture.git
+git clone https://github.com/fanrujiang/TextToPicture
 cd TextToPicture
 
-### 构建项目
-
-使用 Maven 构建项目并生成JAR文件：
-
-```bash
+# 构建项目
+# 使用 Maven 构建项目并生成JAR文件：
 mvn clean package
 ```
 
@@ -80,6 +77,3 @@ java -jar target/TextToPicture.jar
 ## 许可证
 
 该项目使用 MIT 许可证。详情请参阅 LICENSE 文件。
-```
-
-你可以根据项目的实际情况对以上内容进行调整和扩展。
