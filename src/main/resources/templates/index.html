@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>鹿匠文生图 demo</title>
+    <style>
+        /* 定义加载动画样式 */
+        #loading {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #555;
+        }
+
+        .spinner {
+            margin: 0 auto;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<h1>鹿匠文生图 demo</h1>
+<form action="/synthesize" method="post" onsubmit="showLoading()">
+    <label for="prompt">关键词:</label>
+    <input type="text" id="prompt" name="prompt" required><br><br>
+
+<!--    <label for="n">图像数量:</label>-->
+<!--    <input type="number" id="n" name="n" required><br><br>-->
+
+    <label for="size">大小:</label>
+    <select id="size" name="size" required>
+        <option value="1024*1024">1024x1024</option>
+        <option value="800*600">800x600</option>
+        <option value="1920*1080">1920x1080</option>
+        <option value="1280*720">1280x720</option>
+        <option value="640*480">640x480</option>
+    </select><br><br>
+
+
+    <label for="style">风格:</label>
+    <select id="style" name="style" required>
+        <option value="<auto>">默认</option>
+        <option value="<3d cartoon>">3D卡通</option>
+        <option value="<sketch>">素描</option>
+    </select><br><br>
+
+
+    <button type="submit">生成图片</button>
+</form>
+
+<div id="loading">
+    <div class="spinner"></div>
+    正在生成图片，请稍候...
+</div>
+
+<script>
+    function showLoading() {
+        document.getElementById('loading').style.display = 'block';
+    }
+</script>
+</body>
+</html>

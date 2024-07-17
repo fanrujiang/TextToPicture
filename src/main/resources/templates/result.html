@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>图片生成结果</title>
+</head>
+<body>
+<h1>图片生成结果</h1>
+<div th:if="${imageUrls}">
+    <p>Generated Images:</p>
+    <div th:each="url : ${imageUrls}">
+        <img th:src="${url}" alt="Generated Image" style="max-width: 500px; max-height: 500px;"/>
+    </div>
+</div>
+<div th:if="${error}">
+    <p>Error: <span th:text="${error}"></span></p>
+</div>
+<a href="/">Back</a>
+</body>
+</html>
